@@ -142,6 +142,7 @@ class Interaction:
             self.message = None
 
         self.user: Optional[Union[User, Member]] = None
+        self.author = self.user
         self._permissions: int = 0
 
         # TODO: there's a potential data loss here
@@ -207,6 +208,24 @@ class Interaction:
             'token': self.token,
         }
         return Webhook.from_state(data=payload, state=self._state)
+
+    async def send(self, *args, **kwargs):
+        """|coro|
+
+        Sends the interaction response.
+
+        This is equivalent to calling :meth:`InteractionResponse.send_message`.
+        """
+        return await self.response.send_message(*args, **kwargs)
+
+    async def replt(self, *args, **kwargs):
+        """|coro|
+
+        Sends the interaction response.
+
+        This is equivalent to calling :meth:`InteractionResponse.send_message`.
+        """
+        return await self.response.send_message(*args, **kwargs)
 
     async def original_message(self) -> InteractionMessage:
         """|coro|
