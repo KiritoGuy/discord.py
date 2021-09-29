@@ -177,7 +177,6 @@ class Role(Hashable):
         'id',
         'name',
         '_icon',
-        'icon',
         'unicode_emoji',
         '_permissions',
         '_colour',
