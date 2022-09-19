@@ -11,5 +11,7 @@ Bot UI Kit helper for the Discord API
 
 from .view import *
 from .item import *
+from .modal import *
 from .button import *
 from .select import *
+from .text_input import *
